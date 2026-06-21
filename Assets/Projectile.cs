@@ -12,6 +12,11 @@ public class Projectile : MonoBehaviour
     [SerializeField] private Transform controllerTransform;
     [SerializeField] private float secondss = 3;
     private bool maaro = false;
+
+    [SerializeField] private LineRenderer lineRenderer;
+    [SerializeField] private int linePoints = 175;
+    [SerializeField] private float timeIntervalInPoints = 0.01f;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -27,13 +32,21 @@ public class Projectile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ball.transform.rotation = controllerTransform.rotation;
+        launchPoint.transform.rotation = controllerTransform.rotation;
+
+        if (lineRenderer)
+        {
+            DrawTrajectory();
+            lineRenderer.enabled = true;
+        }
+
         if (maaro) // Mouse.current.leftButton.isPressed
         {
             maaro = false;
+            lineRenderer.enabled = false;
             Debug.Log("maaroooo");
             ballrb.constraints = RigidbodyConstraints.None;
-            ballrb.linearVelocity = launchSpeed * controllerTransform.up;
+            ballrb.linearVelocity = launchSpeed * launchPoint.up;
         }
     }
 
@@ -41,5 +54,22 @@ public class Projectile : MonoBehaviour
     {
         yield return new WaitForSeconds(secondss);
         maaro = true;
+    }
+
+    void DrawTrajectory()
+    {
+        Vector3 origin = launchPoint.position;
+        Vector3 startVelocity = launchSpeed * launchPoint.up;
+        lineRenderer.positionCount = linePoints;
+        float time = 0;
+        for (int i = 0; i < linePoints; i++)
+        {
+            // var x = (startVelocity.x * time) + (Physics.gravity.x / 2 * time * time);
+            // var y = (startVelocity.y * time) + (Physics.gravity.y / 2 * time * time);
+            // Vector3 point = new Vector3(x, y, 0);
+            Vector3 point = origin + startVelocity * time + 0.5f * Physics.gravity * time * time;
+            lineRenderer.SetPosition(i, point);
+            time += timeIntervalInPoints;
+        }
     }
 }
