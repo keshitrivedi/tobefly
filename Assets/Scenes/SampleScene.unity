@@ -521,6 +521,7 @@ GameObject:
   - component: {fileID: 418185192}
   - component: {fileID: 418185191}
   - component: {fileID: 418185190}
+  - component: {fileID: 418185194}
   m_Layer: 5
   m_Name: Timervas
   m_TagString: Untagged
@@ -611,6 +612,24 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &418185194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 418185189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7089dc33b095464b964cf1511ead462, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Timer
+  timerDisplay: {fileID: 1735339009}
+  nums:
+  - {fileID: 21300000, guid: 8039e9819d5d7fd4e82f152cf99baba2, type: 3}
+  - {fileID: 21300000, guid: d27b526d41409244dbdbccf063572709, type: 3}
+  - {fileID: 21300000, guid: 5aa5b86cb1eea1e48949713b0bdb293e, type: 3}
+  - {fileID: 21300000, guid: 2fde2ddada1873c4e8f920864ddfb6c8, type: 3}
 --- !u!1 &421212004
 GameObject:
   m_ObjectHideFlags: 0
@@ -723,7 +742,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 400, y: 356}
+  m_SizeDelta: {x: 400, y: 400}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &508540909
 MonoBehaviour:
@@ -763,6 +782,73 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 508540907}
   m_CullTransparentMesh: 1
+--- !u!1 &527003031
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 527003033}
+  - component: {fileID: 527003032}
+  - component: {fileID: 527003034}
+  m_Layer: 0
+  m_Name: underNet
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &527003032
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 527003031}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 23.185646, y: 2.6383426, z: 0.08103439}
+  m_Center: {x: 2.112215, y: 0.8191713, z: 0}
+--- !u!4 &527003033
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 527003031}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.34262, y: -1.51, z: -0.25}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &527003034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 527003031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94a2432fb9921954987867a67c7e787c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UnderNet
+  under: 0
 --- !u!1 &552024735
 GameObject:
   m_ObjectHideFlags: 0
@@ -821,7 +907,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10308, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: -3846018093981099296, guid: bdd9953a68dd5b945baab01fb48de932, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1343,6 +1429,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 6755c0534b4a08f428010b36a14604da, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 1525c8bf54a68be4a970ce418a6bda3a, type: 2}
     - target: {fileID: 919132149155446097, guid: 6755c0534b4a08f428010b36a14604da, type: 3}
       propertyPath: m_Name
       value: playne
@@ -1759,7 +1849,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 400, y: 356}
+  m_SizeDelta: {x: 400, y: 400}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1669147239
 MonoBehaviour:
@@ -2562,3 +2652,4 @@ SceneRoots:
   - {fileID: 991801881}
   - {fileID: 1903100907}
   - {fileID: 418185193}
+  - {fileID: 527003033}

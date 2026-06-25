@@ -15,8 +15,8 @@ public class Projectile : MonoBehaviour
     public bool ballReleased = false;
 
     [SerializeField] private LineRenderer lineRenderer;
-    [SerializeField] private int linePoints = 175;
-    [SerializeField] private float timeIntervalInPoints = 0.01f;
+    [SerializeField] private int linePoints = 1000;
+    [SerializeField] private float timeIntervalInPoints = 0.05f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
