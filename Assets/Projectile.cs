@@ -36,16 +36,15 @@ public class Projectile : MonoBehaviour
     {
         launchPoint.transform.rotation = controllerTransform.rotation;
 
+        lineRenderer.enabled = !ballReleased;
         if (lineRenderer)
         {
             DrawTrajectory();
-            lineRenderer.enabled = true;
         }
 
         if (maaro) // Mouse.current.leftButton.isPressed
         {
             maaro = false;
-            lineRenderer.enabled = false;
             Debug.Log("maaroooo");
             ballrb.constraints = RigidbodyConstraints.None;
             ballrb.linearVelocity = launchSpeed * launchPoint.up;
