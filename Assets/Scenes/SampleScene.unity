@@ -1736,6 +1736,7 @@ GameObject:
   - component: {fileID: 1903100906}
   - component: {fileID: 1903100905}
   - component: {fileID: 1903100904}
+  - component: {fileID: 1903100908}
   m_Layer: 5
   m_Name: AfterHitCanvas
   m_TagString: Untagged
@@ -1827,6 +1828,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1903100908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1903100903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97e2ef314d147ad4b833b400f10d9371, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Curtain
+  leftPanel: {fileID: 508540908}
+  rightPanel: {fileID: 1669147238}
 --- !u!1001 &2038680746
 PrefabInstance:
   m_ObjectHideFlags: 0
