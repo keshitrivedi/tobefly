@@ -12,6 +12,7 @@ public class Projectile : MonoBehaviour
     [SerializeField] private Transform controllerTransform;
     [SerializeField] private float secondss = 3;
     private bool maaro = false;
+    public bool ballReleased = false;
 
     [SerializeField] private LineRenderer lineRenderer;
     [SerializeField] private int linePoints = 175;
@@ -25,6 +26,7 @@ public class Projectile : MonoBehaviour
 
         ballrb.constraints = RigidbodyConstraints.FreezePositionY;
         maaro = false;
+        ballReleased = false;
 
         StartCoroutine(Timewr(secondss));
     }
@@ -54,6 +56,7 @@ public class Projectile : MonoBehaviour
     {
         yield return new WaitForSeconds(secondss);
         maaro = true;
+        ballReleased = true;
     }
 
     void DrawTrajectory()
