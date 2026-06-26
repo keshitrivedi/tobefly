@@ -15,6 +15,7 @@ public class Afterhit : MonoBehaviour
     [SerializeField] private UnityEngine.UI.Image rightImage;
     [SerializeField] private Sprite[] resSprites;
     [SerializeField] private Sprite[] suppSprites;
+    [SerializeField] private Sprite[] textSprites;
     private int spriteind;
     private int suppSpriteInd;
     private bool gira = false;
@@ -63,7 +64,7 @@ public class Afterhit : MonoBehaviour
                 Debug.Log("hi");
                 gira = true;
                 //start delay counter
-                StartCoroutine(delay(5));
+                StartCoroutine(delay(2));
                 
             }
             // check if collider of net hit

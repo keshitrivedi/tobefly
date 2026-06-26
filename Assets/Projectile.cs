@@ -10,7 +10,7 @@ public class Projectile : MonoBehaviour
     private Rigidbody ballrb;
     [SerializeField] private float launchSpeed = 10f;
     [SerializeField] private Transform controllerTransform;
-    [SerializeField] private float secondss = 3;
+    [SerializeField] private float secondss = 5;
     private bool maaro = false;
     public bool ballReleased = false;
 

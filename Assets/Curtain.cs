@@ -18,8 +18,8 @@ public class Curtain : MonoBehaviour
     {
         if (leftPanel.anchoredPosition.x < 0)
         {
-            float leftX = leftPanel.anchoredPosition.x + 1f;
-            float rightX = rightPanel.anchoredPosition.x - 1f;
+            float leftX = leftPanel.anchoredPosition.x + 2f;
+            float rightX = rightPanel.anchoredPosition.x - 2f;
 
             leftPanel.anchoredPosition = new Vector2(leftX, leftPanel.anchoredPosition.y);
             rightPanel.anchoredPosition = new Vector2(rightX, rightPanel.anchoredPosition.y);

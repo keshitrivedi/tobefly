@@ -13,7 +13,7 @@ public class Timer : MonoBehaviour
     void Start()
     {
         timerDisplay.sprite = nums[0];
-        StartCoroutine(timer(3));
+        StartCoroutine(timer(5));
     }
 
     // Update is called once per frame
@@ -27,8 +27,8 @@ public class Timer : MonoBehaviour
         while (counter < secondss)
         {
             counter ++;
-            yield return new WaitForSeconds(1);
             timerDisplay.sprite = nums[counter];
+            yield return new WaitForSeconds(1);
         }
         yield return new WaitForSeconds(1.5f);
         timerDisplay.gameObject.SetActive(false);
