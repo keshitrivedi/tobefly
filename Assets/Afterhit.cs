@@ -10,6 +10,7 @@ public class Afterhit : MonoBehaviour
     [SerializeField] private Bottlehit bottleScript;
     [SerializeField] private Groundhit groundScript;
     [SerializeField] private UnderNet underNetScript;
+    [SerializeField] private OverNet overNetScript;
     [SerializeField] private Canvas afterHitCanvas;
     [SerializeField] private UnityEngine.UI.Image leftImg;
     [SerializeField] private UnityEngine.UI.Image rightImage;
@@ -35,9 +36,11 @@ public class Afterhit : MonoBehaviour
     {
         if (projectile.ballReleased)
         {
-            if (underNetScript.under)
+            if (underNetScript.under && !overNetScript.netPaar && !actualHit)
             {
                 Debug.Log("Cue");
+                spriteind = 3;
+                suppSpriteInd = 2;
                 textSpriteInd = 4;
             } else
             {
@@ -60,11 +63,14 @@ public class Afterhit : MonoBehaviour
                         actualHit = true;
                     } else
                     {
-                        // miss panel
-                        Debug.Log("MISS");
-                        spriteind = 1;
-                        suppSpriteInd = 1;
-                        textSpriteInd = 1;
+                        if (!actualHit)
+                        {
+                            // miss panel
+                            Debug.Log("MISS");
+                            spriteind = 1;
+                            suppSpriteInd = 1;
+                            textSpriteInd = 1;
+                        }
                     }
                 }
             }
@@ -98,6 +104,7 @@ public class Afterhit : MonoBehaviour
         Debug.Log("ground is hit");
         if (bottleScript.bottlehit && !underNetScript.under && !actualHit)
         {
+            spriteind = 4;
             textSpriteInd = 3;
         }
         afterHitCanvas.gameObject.SetActive(true);
