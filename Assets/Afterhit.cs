@@ -13,12 +13,15 @@ public class Afterhit : MonoBehaviour
     [SerializeField] private Canvas afterHitCanvas;
     [SerializeField] private UnityEngine.UI.Image leftImg;
     [SerializeField] private UnityEngine.UI.Image rightImage;
+    [SerializeField] private UnityEngine.UI.Image textImg;
     [SerializeField] private Sprite[] resSprites;
     [SerializeField] private Sprite[] suppSprites;
     [SerializeField] private Sprite[] textSprites;
     private int spriteind;
     private int suppSpriteInd;
+    private int textSpriteInd;
     private bool gira = false;
+    private bool actualHit = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     void Start()
@@ -32,30 +35,37 @@ public class Afterhit : MonoBehaviour
     {
         if (projectile.ballReleased)
         {
-            // if (underNetScript.under)
-            // {
-            //     Debug.Log("Cue");
-            // }
-            if (netScript.nethit)
+            if (underNetScript.under)
             {
-                // net panel
-                Debug.Log("NET");
-                spriteind = 2;
-                suppSpriteInd = 1;
+                Debug.Log("Cue");
+                textSpriteInd = 4;
             } else
             {
-                if (bottleScript.bottlehit)
+                if (netScript.nethit)
                 {
-                    // hit panel
-                    Debug.Log("HIT");
-                    spriteind = 0;
-                    suppSpriteInd = 0;
+                    // net panel
+                    Debug.Log("NET");
+                    spriteind = 2;
+                    suppSpriteInd = 1;
+                    textSpriteInd = 2;
                 } else
                 {
-                    // miss panel
-                    Debug.Log("MISS");
-                    spriteind = 1;
-                    suppSpriteInd = 1;
+                    if (bottleScript.bottlehit && !groundScript.groundhit)
+                    {
+                        // hit panel
+                        Debug.Log("HIT");
+                        spriteind = 0;
+                        suppSpriteInd = 0;
+                        textSpriteInd = 0;
+                        actualHit = true;
+                    } else
+                    {
+                        // miss panel
+                        Debug.Log("MISS");
+                        spriteind = 1;
+                        suppSpriteInd = 1;
+                        textSpriteInd = 1;
+                    }
                 }
             }
 
@@ -67,6 +77,7 @@ public class Afterhit : MonoBehaviour
                 StartCoroutine(delay(2));
                 
             }
+            
             // check if collider of net hit
                 // check if same side of the ground hit or velocity in z towards you
                     // net bool
@@ -85,8 +96,13 @@ public class Afterhit : MonoBehaviour
     {
         yield return new WaitForSeconds(secondss);
         Debug.Log("ground is hit");
+        if (bottleScript.bottlehit && !underNetScript.under && !actualHit)
+        {
+            textSpriteInd = 3;
+        }
         afterHitCanvas.gameObject.SetActive(true);
         leftImg.sprite = resSprites[spriteind];
         rightImage.sprite = suppSprites[suppSpriteInd];
+        textImg.sprite = textSprites[textSpriteInd];
     }
 }

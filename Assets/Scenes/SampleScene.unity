@@ -1164,10 +1164,11 @@ MonoBehaviour:
   netScript: {fileID: 1362864498}
   bottleScript: {fileID: 677045071}
   groundScript: {fileID: 418093835}
-  underNetScript: {fileID: 0}
+  underNetScript: {fileID: 527003034}
   afterHitCanvas: {fileID: 1903100906}
   leftImg: {fileID: 1243688276}
   rightImage: {fileID: 1067577462}
+  textImg: {fileID: 710066663}
   resSprites:
   - {fileID: 21300000, guid: 9e5a31e8f4414f146a45f86522f2e230, type: 3}
   - {fileID: 21300000, guid: e9bb40fbc0582514ab931afdf6d7b5fc, type: 3}

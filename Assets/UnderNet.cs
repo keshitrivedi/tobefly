@@ -7,7 +7,7 @@ public class UnderNet : MonoBehaviour
 
     void Awake()
     {
-        under = false;
+        // under = false;
     }
 
     void Start()
