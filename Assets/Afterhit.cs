@@ -9,11 +9,14 @@ public class Afterhit : MonoBehaviour
     [SerializeField] private Nethit netScript;
     [SerializeField] private Bottlehit bottleScript;
     [SerializeField] private Groundhit groundScript;
+    [SerializeField] private UnderNet underNetScript;
     [SerializeField] private Canvas afterHitCanvas;
     [SerializeField] private UnityEngine.UI.Image leftImg;
     [SerializeField] private UnityEngine.UI.Image rightImage;
     [SerializeField] private Sprite[] resSprites;
+    [SerializeField] private Sprite[] suppSprites;
     private int spriteind;
+    private int suppSpriteInd;
     private bool gira = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
@@ -28,11 +31,16 @@ public class Afterhit : MonoBehaviour
     {
         if (projectile.ballReleased)
         {
+            // if (underNetScript.under)
+            // {
+            //     Debug.Log("Cue");
+            // }
             if (netScript.nethit)
             {
                 // net panel
                 Debug.Log("NET");
                 spriteind = 2;
+                suppSpriteInd = 1;
             } else
             {
                 if (bottleScript.bottlehit)
@@ -40,11 +48,13 @@ public class Afterhit : MonoBehaviour
                     // hit panel
                     Debug.Log("HIT");
                     spriteind = 0;
+                    suppSpriteInd = 0;
                 } else
                 {
                     // miss panel
                     Debug.Log("MISS");
                     spriteind = 1;
+                    suppSpriteInd = 1;
                 }
             }
 
@@ -76,5 +86,6 @@ public class Afterhit : MonoBehaviour
         Debug.Log("ground is hit");
         afterHitCanvas.gameObject.SetActive(true);
         leftImg.sprite = resSprites[spriteind];
+        rightImage.sprite = suppSprites[suppSpriteInd];
     }
 }

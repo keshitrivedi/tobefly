@@ -1161,6 +1161,7 @@ MonoBehaviour:
   netScript: {fileID: 1362864498}
   bottleScript: {fileID: 677045071}
   groundScript: {fileID: 418093835}
+  underNetScript: {fileID: 0}
   afterHitCanvas: {fileID: 1903100906}
   leftImg: {fileID: 1243688276}
   rightImage: {fileID: 1067577462}
@@ -1168,6 +1169,9 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 9e5a31e8f4414f146a45f86522f2e230, type: 3}
   - {fileID: 21300000, guid: e9bb40fbc0582514ab931afdf6d7b5fc, type: 3}
   - {fileID: 21300000, guid: b7baac4e92dcf324898dd1d000ba6e6f, type: 3}
+  suppSprites:
+  - {fileID: 21300000, guid: c837d45e5cb3c724a8df65ace9cb8306, type: 3}
+  - {fileID: 21300000, guid: cd11407c8bf38794181da7550bbbc877, type: 3}
 --- !u!1 &657737833
 GameObject:
   m_ObjectHideFlags: 0
@@ -1561,7 +1565,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1067577461
 RectTransform:
   m_ObjectHideFlags: 0
