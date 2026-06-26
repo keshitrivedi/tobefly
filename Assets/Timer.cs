@@ -8,12 +8,13 @@ public class Timer : MonoBehaviour
 {
     [SerializeField] private UnityEngine.UI.Image timerDisplay;
     [SerializeField] private Sprite[] nums;
+    [SerializeField] private Projectile ballwa;
     private int counter = 0;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         timerDisplay.sprite = nums[0];
-        StartCoroutine(timer(5));
+        StartCoroutine(timer());
     }
 
     // Update is called once per frame
@@ -22,15 +23,18 @@ public class Timer : MonoBehaviour
         
     }
 
-    private IEnumerator timer(float secondss)
+    private IEnumerator timer()
     {
-        while (counter < secondss)
+        for (int i = 0; i < nums.Length; i++)
         {
-            counter ++;
-            timerDisplay.sprite = nums[counter];
+            timerDisplay.sprite = nums[i];
+            if (i == nums.Length - 1) // GO
+            {
+                ballwa.ballFenko();
+            }
             yield return new WaitForSeconds(1);
         }
-        yield return new WaitForSeconds(1.5f);
+
         timerDisplay.gameObject.SetActive(false);
     }
 }

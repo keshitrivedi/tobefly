@@ -28,7 +28,7 @@ public class Projectile : MonoBehaviour
         maaro = false;
         ballReleased = false;
 
-        StartCoroutine(Timewr(secondss));
+        // StartCoroutine(Timewr(secondss));
     }
 
     // Update is called once per frame
@@ -42,21 +42,30 @@ public class Projectile : MonoBehaviour
             DrawTrajectory();
         }
 
-        if (maaro) // Mouse.current.leftButton.isPressed
-        {
-            maaro = false;
-            Debug.Log("maaroooo");
-            ballrb.constraints = RigidbodyConstraints.None;
-            ballrb.linearVelocity = launchSpeed * launchPoint.up;
-        }
+        // if (maaro) // Mouse.current.leftButton.isPressed
+        // {
+        //     maaro = false;
+        //     Debug.Log("maaroooo");
+        //     ballrb.constraints = RigidbodyConstraints.None;
+        //     ballrb.linearVelocity = launchSpeed * launchPoint.up;
+        // }
     }
 
-    private IEnumerator Timewr(float secondss)
+    public void ballFenko()
     {
-        yield return new WaitForSeconds(secondss);
-        maaro = true;
+        if (ballReleased) return;
+
         ballReleased = true;
+        ballrb.constraints = RigidbodyConstraints.None;
+        ballrb.linearVelocity = launchSpeed * launchPoint.up;
     }
+
+    // private IEnumerator Timewr(float secondss)
+    // {
+    //     yield return new WaitForSeconds(secondss);
+    //     maaro = true;
+    //     ballReleased = true;
+    // }
 
     void DrawTrajectory()
     {
