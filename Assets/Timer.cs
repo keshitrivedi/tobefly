@@ -1,7 +1,4 @@
-using System;
 using System.Collections;
-using Microsoft.Unity.VisualStudio.Editor;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Timer : MonoBehaviour
@@ -9,6 +6,7 @@ public class Timer : MonoBehaviour
     [SerializeField] private UnityEngine.UI.Image timerDisplay;
     [SerializeField] private Sprite[] nums;
     [SerializeField] private Projectile ballwa;
+    [SerializeField] private RectTransform leftSprPan;
     private int counter = 0;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -36,5 +34,6 @@ public class Timer : MonoBehaviour
         }
 
         timerDisplay.gameObject.SetActive(false);
+        leftSprPan.anchoredPosition = new Vector2(20f, leftSprPan.anchoredPosition.y);
     }
 }

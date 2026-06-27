@@ -1,6 +1,4 @@
 using System.Collections;
-using UnityEngine.UI;
-using Microsoft.Unity.VisualStudio.Editor;
 using UnityEngine;
 
 public class Afterhit : MonoBehaviour
@@ -36,7 +34,7 @@ public class Afterhit : MonoBehaviour
     {
         if (projectile.ballReleased)
         {
-            if (underNetScript.under && !overNetScript.netPaar && !actualHit)
+            if (underNetScript.under && !overNetScript.netPaar && !actualHit && !netScript.nethit)
             {
                 Debug.Log("Cue");
                 spriteind = 3;
@@ -49,7 +47,7 @@ public class Afterhit : MonoBehaviour
                     // net panel
                     Debug.Log("NET");
                     spriteind = 2;
-                    suppSpriteInd = 1;
+                    suppSpriteInd = 3;
                     textSpriteInd = 2;
                 } else
                 {

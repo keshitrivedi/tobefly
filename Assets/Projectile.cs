@@ -1,7 +1,4 @@
-using System.Collections;
-using UnityEditor.Callbacks;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class Projectile : MonoBehaviour
 {
